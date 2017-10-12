@@ -37,7 +37,11 @@ gulp.task('browserSync', function() {
 gulp.task('sass', function() {
    return gulp.src('app/scss/**/*.scss')
        .pipe(sourcemaps.init())
-       .pipe(sass()) // Converts Sass to CSS with gulp-sass
+       .pipe(sass().on('error', function(err) {
+          console.error(err.message);
+          browserSync.notify(err.message, 30000); // Display error in the browser
+          this.emit('end'); // Prevent gulp from catching the error and exiting the watch process
+        })) // Converts Sass to CSS with gulp-sass
        .pipe(autoprefixer({
              browsers: ['last 2 versions'],
              cascade: false
