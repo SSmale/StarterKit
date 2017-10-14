@@ -2,7 +2,7 @@
 
 This is my gulp starter kit based on a [tutorial](https://css-tricks.com/gulp-for-beginners/) by Zell Liew
 
-It has the file structure of
+It will need a file structure of
 ```
 |- app/
     |- css/
@@ -11,6 +11,11 @@ It has the file structure of
     |- index.html
     |- js/ 
     |- scss/
+        |- Base/
+        |- Component/
+        |- Page/
+        |- Partial/
+        |- Tools/
 |- dist/
 |- gulpfile.js
 |- node_modules/
